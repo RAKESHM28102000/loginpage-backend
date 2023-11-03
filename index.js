@@ -143,7 +143,7 @@ app.post('/api/profile', (req, res) => {
 
 
 app.get('/api/profile/:id', (req, res) => {
-  Userprofile.findOne({id:req.params.id})
+  Userprofile.findById({_id:req.params.id})
   .then((foundeditems)=>{
    
       res.json({ message: 'profile successful',foundeditems});
@@ -154,10 +154,9 @@ app.get('/api/profile/:id', (req, res) => {
   })
 });
 
-app.put('/api/profile', (req, res) => {
-  const {email}=req.body
+app.put('/api/profile/:id', (req, res) => {
   const update ={...req.body};
-  Userprofile.findOneAndUpdate({email:email}, update)
+  Userprofile.findOneAndUpdate({_id:req.params.id}, update)
   .then(()=>{
     res.json({ message: 'Profile updated successfully' });
   })
@@ -168,7 +167,7 @@ app.put('/api/profile', (req, res) => {
 
 });
 app.delete('/api/delete/:id',(req,res)=>{
-  Userprofile.deleteOne({id:req.params.id})
+  Userprofile.deleteOne({_id:req.params.id})
   .then(()=>{
     res.json({ message: 'Profile deleted successfully' });
   })

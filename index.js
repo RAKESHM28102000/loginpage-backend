@@ -4,7 +4,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from 'cors';
-import _ from 'lodash';
+// import _ from 'lodash';
 import bcrypt from 'bcrypt';
 const saltRounds=10;
 dotenv.config();

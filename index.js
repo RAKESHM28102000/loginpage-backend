@@ -64,7 +64,12 @@ const Userprofile=mongoose.model("Userprofile",userProfile);
 // const Login=new mongoose.model("Login",loginSchema);
 
 
+app.get('/', (req, res) => {
 
+  res.json({ message:'sever running'});
+
+ 
+});
 app.post('/api/signup', (req, res) => {
   const {name,email,password,confirmPassword} = req.body;
   const registeredPassword=password;

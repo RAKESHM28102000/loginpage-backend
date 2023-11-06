@@ -97,7 +97,7 @@ app.post('/api/login',(req, res) => {
   UserSignup.findOne({email:req.body.email})
   .then((foundedUser) => {
     if(foundedUser){
-      console.log(foundedUser);
+      // console.log(foundedUser);
       bcrypt.compare(registeredPassword,foundedUser.password,function(err,result){
        if (!err && result===true){
        res.status(201).json({ message: 'User registered login successfully' });}
